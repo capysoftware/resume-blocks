@@ -1,13 +1,9 @@
 import Link from "next/link";
 import {
   BriefcaseIcon,
-  CircleUser,
   FilesIcon,
   GraduationCapIcon,
   Menu,
-  Package2,
-  ScrollIcon,
-  Search,
   User2Icon,
   WrenchIcon,
   type LucideIcon,
@@ -21,15 +17,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Logo from "@/components/logo";
 import type { ReactNode } from "react";
@@ -65,7 +52,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         </div>
       </div>
       <div className="flex flex-col">
-        <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
+        <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6 md:hidden">
           <Sheet>
             <SheetTrigger asChild>
               <Button
@@ -97,36 +84,8 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
               </div>
             </SheetContent>
           </Sheet>
-          <div className="w-full flex-1">
-            <form>
-              <div className="relative">
-                <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-                <Input
-                  type="search"
-                  placeholder="Search products..."
-                  className="w-full appearance-none bg-background pl-8 shadow-none md:w-2/3 lg:w-1/3"
-                />
-              </div>
-            </form>
-          </div>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="secondary" size="icon" className="rounded-full">
-                <CircleUser className="h-5 w-5" />
-                <span className="sr-only">Toggle user menu</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuItem>Support</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Logout</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
         </header>
-        {children}
+        <main className="p-6 max-w-screen-xl mx-auto w-full">{children}</main>
       </div>
     </div>
   );
@@ -157,15 +116,20 @@ function Navbar() {
 function MobileNavbar() {
   return (
     <nav className="grid gap-2 text-lg font-medium">
-      <Link
-        href="/dashboard"
-        className="flex items-center gap-2 text-lg font-semibold"
-      >
-        <Package2 className="h-6 w-6" />
-        <span className="sr-only">Poly Resume</span>
-      </Link>
-      <NavbarItem href="/dashboard/resume" icon={ScrollIcon}>
-        Resume
+      <NavbarItem href="/dashboard/resume" icon={FilesIcon}>
+        Resumes
+      </NavbarItem>
+      <NavbarItem href="/dashboard/personal-info" icon={User2Icon}>
+        Personal Info
+      </NavbarItem>
+      <NavbarItem href="/dashboard/work-experience" icon={BriefcaseIcon}>
+        Work Experience
+      </NavbarItem>
+      <NavbarItem href="/dashboard/education" icon={GraduationCapIcon}>
+        Education
+      </NavbarItem>
+      <NavbarItem href="/dashboard/skills" icon={WrenchIcon}>
+        Skills
       </NavbarItem>
     </nav>
   );
