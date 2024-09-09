@@ -46,7 +46,7 @@ function EducationItem() {
           </CardDescription>
         </div>
         <div className="flex items-center gap-2">
-          <span>2021-2022</span>
+          <span>Graduation Date: 2021</span>
         </div>
       </CardHeader>
       <CardContent></CardContent>

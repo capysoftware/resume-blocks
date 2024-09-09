@@ -4,8 +4,7 @@ import { z } from "zod";
 const educationFormSchema = z.object({
   schoolName: z.string().min(1),
   degree: z.string().min(1),
-  startDate: z.date(),
-  endDate: z.date().optional(),
+  graduationDate: z.date(),
 });
 
 export default function EducationForm() {
