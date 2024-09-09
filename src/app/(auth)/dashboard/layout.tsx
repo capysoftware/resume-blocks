@@ -94,7 +94,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 function Navbar() {
   return (
     <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
-      <NavbarItem href="/dashboard/resume" icon={FilesIcon}>
+      <NavbarItem href="/dashboard/resumes" icon={FilesIcon}>
         Resumes
       </NavbarItem>
       <NavbarItem href="/dashboard/personal-info" icon={User2Icon}>
@@ -116,7 +116,7 @@ function Navbar() {
 function MobileNavbar() {
   return (
     <nav className="grid gap-2 text-lg font-medium">
-      <NavbarItem href="/dashboard/resume" icon={FilesIcon}>
+      <NavbarItem href="/dashboard/resumes" icon={FilesIcon}>
         Resumes
       </NavbarItem>
       <NavbarItem href="/dashboard/personal-info" icon={User2Icon}>
