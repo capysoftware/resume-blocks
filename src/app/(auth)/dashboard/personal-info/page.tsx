@@ -13,7 +13,7 @@ export default function PersonalInfoPage() {
       <div className="flex justify-end mt-6">
         <Link
           href="/dashboard/personal-info/edit"
-          className={cn(buttonVariants({ size: "lg" }), "w-full")}
+          className={cn(buttonVariants({ size: "lg" }), "w-full md:w-fit")}
         >
           Edit
         </Link>
