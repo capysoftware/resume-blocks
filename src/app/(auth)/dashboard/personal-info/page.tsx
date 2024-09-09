@@ -1,14 +1,23 @@
+import DashboardHeading from "@/components/page-heading";
+import { buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import { User2Icon } from "lucide-react";
+import Link from "next/link";
 
 export default function PersonalInfoPage() {
   return (
     <>
-      <div className="flex items-center gap-4 mb-6">
-        <User2Icon className="size-10" />
-        <h1 className="text-2xl font-bold">Personal Overview</h1>
-      </div>
+      <DashboardHeading icon={User2Icon} title="Personal Overview" />
       <PersonalInfoCard />
+      <div className="flex justify-end mt-6">
+        <Link
+          href="/dashboard/personal-info/edit"
+          className={cn(buttonVariants({ size: "lg" }), "w-full")}
+        >
+          Edit
+        </Link>
+      </div>
     </>
   );
 }
